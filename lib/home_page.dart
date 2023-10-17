@@ -1,36 +1,73 @@
- import 'package:flutter/material.dart';
-import 'package:flutter_mysnippets/app_colors.dart';
-import 'package:flutter_mysnippets/calculate_button.dart';
+import 'package:flutter/material.dart';
+
+import 'package:flutter_mysnippets/components/calculate_button.dart';
+import 'package:flutter_mysnippets/components/card_height.dart';
+import 'package:flutter_mysnippets/components/card_male.dart';
+import 'package:flutter_mysnippets/utils/app_colors.dart';
+import 'package:flutter_mysnippets/utils/app_text.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
-   @override
+  @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.BgColor,
+      backgroundColor: AppColor.backgroundColor,
       appBar: AppBar(
-        backgroundColor: AppColor.BgColor,
+        backgroundColor: AppColor.backgroundColor,
         centerTitle: true,
-        title: const Text('BMI CALCULATOR',
-        style: TextStyle(color: Colors.white),
+        title: const Text(
+          'BMI CALCULATOR',
+          style: TextStyle(color: Colors.white),
         ),
       ),
-       body: const Center(
+      body: Padding(
+        padding: EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
-            Expanded(child: Text('s1')),
-            Expanded(child: Text('s2')),
-            Expanded(child: Text('s3')),
-            CalculateButton(),
+            Expanded(
+              child: Row(
+                children: [
+                  CardMale(
+                    icon: Icons.male,
+                    text: AppText.male,
+                  ),
+                  SizedBox(width: 20),
+                  CardMale(
+                    icon: Icons.female,
+                    text: AppText.female,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Expanded(
+                child: CardHeight()),
+                SizedBox(height: 20),
+            Expanded(child: Row(children: [
+               CardMale(
+                    icon: Icons.male,
+                    text: AppText.male,
+                  ),
+                  SizedBox(width: 20),
+                  CardMale(
+                    icon: Icons.female,
+                    text: AppText.female,
+                  ),
+            ],)),
+           
           ],
         ),
       ),
+      bottomNavigationBar:  CalculateButton(),
     );
   }
 }
+
+

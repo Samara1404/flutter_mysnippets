@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mysnippets/app_colors.dart';
+import '../../utils/app_colors.dart';
 
 class CalculateButton extends StatelessWidget {
   const CalculateButton({
@@ -15,7 +15,7 @@ class CalculateButton extends StatelessWidget {
         child: Container(
           height: 50,
           width: double.infinity,
-          color: AppColor.redColor,
+          color: AppColor.buttonColor,
           child: Center(
             child: Text(
               'CALCULATE',
